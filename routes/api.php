@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,9 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// Users.
 Route::get('/users',[UserController::class, 'users']);
+// Calendar.
+Route::get('/calendar',[CalendarController::class, 'index']);
+Route::post('calendar/cdd',[CalendarController::class, 'calendarDisabledDays']);
+//
